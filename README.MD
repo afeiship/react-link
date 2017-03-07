@@ -11,10 +11,14 @@
 ## props:
 | name | type | value | description |
 | :----| :----| :----| :----|
-| visible  | Boolean | true/false | v-show |
+| className  | String | '' | Your className |
+| href  | String | '#' | href |
+| activeClassName  | String | 'active' | The class when active |
+| method  | Enum | href/replace | location method |
 
 
 ## usage:
 ```html
-<react-link :visible="true" />
+<ReactLink method="replace" activeClassName='active' className="menu-sold" href='#/sold'>卖出的</ReactLink>
+<ReactLink method="replace" activeClassName='active' className="menu-buy" href='#/buy'>买到的</ReactLink>
 ```
