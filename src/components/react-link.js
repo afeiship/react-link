@@ -55,12 +55,14 @@ export default class extends React.Component{
         onClick.call(this,inEvent);
         break;
     }
+    inEvent.preventDefault();
+    return false;
   }
 
   render(){
     const {className,children,href} = this.props;
     return (
-      <a href='javascript:;'  onClick={this._onClick.bind(this)} className={classNames('react-link',CLASS_NAME,className)}>{children}</a>
+      <a href={href} onClick={this._onClick.bind(this)} className={classNames('react-link',CLASS_NAME,className)}>{children}</a>
     );
   }
 }
