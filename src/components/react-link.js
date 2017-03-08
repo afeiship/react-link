@@ -29,8 +29,9 @@ export default class extends React.Component{
     const docUrl = location.href;
     const {href,activeClassName} = this.props;
     const links = document.querySelectorAll(`.${CLASS_NAME}`);
+    let _links = Array.prototype.slice.call(links);
 
-    links.forEach((item)=>{
+    _links.forEach((item)=>{
       let expectUrl = url.resolve(docUrl,item.getAttribute('href'));
       if(expectUrl === inTargetUrl){
         item.classList.add(activeClassName);
