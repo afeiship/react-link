@@ -1,4 +1,5 @@
 import './style.scss';
+import React from 'react';
 import classNames from 'classnames';
 import noop from 'noop';
 import url from 'url';
