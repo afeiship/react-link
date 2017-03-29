@@ -1,6 +1,6 @@
 import './style.scss';
 import React,{PropTypes} from 'react';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import noop from 'noop';
 import url from 'url';
 
