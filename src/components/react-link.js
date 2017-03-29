@@ -1,5 +1,5 @@
 import './style.scss';
-import React from 'react';
+import React,{PropTypes} from 'react';
 import classNames from 'classnames';
 import noop from 'noop';
 import url from 'url';
@@ -10,10 +10,10 @@ const CLASS_NAME='__react-link__';
 
 export default class extends React.Component{
   static propTypes = {
-    className:React.PropTypes.string,
-    href:React.PropTypes.string,
-    activeClassName:React.PropTypes.string,
-    method:React.PropTypes.oneOf(['href','replace','other'])
+    className:PropTypes.string,
+    href:PropTypes.string,
+    activeClassName:PropTypes.string,
+    method:PropTypes.oneOf(['href','replace','other'])
   };
 
   static defaultProps = {
