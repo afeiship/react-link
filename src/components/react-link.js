@@ -1,9 +1,10 @@
 import './style.scss';
-import React,{PropTypes} from 'react';
+
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import noop from 'noop';
 import url from 'url';
-
 
 const location = window.location;
 const CLASS_NAME='__react-link__';
@@ -21,6 +22,18 @@ export default class extends React.Component{
     activeClassName:'active',
     method:'href'
   };
+
+
+  constructor(props){
+    super(props);
+    this.attachEvents();
+  }
+
+  attachEvents(){
+    window.onhashchange = () => {
+      this.setActiveClass(location.href);
+    };
+  }
 
   componentDidMount(){
     this.setActiveClass(location.href);
