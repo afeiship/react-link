@@ -30,7 +30,7 @@ export default class extends React.Component{
   }
 
   attachEvents(){
-    window.onhashchange = () => {
+    window.onhashchange = window.onpopstate = () => {
       this.setActiveClass(location.href);
     };
   }
