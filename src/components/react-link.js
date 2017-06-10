@@ -9,12 +9,14 @@ import url from 'url';
 const location = window.location;
 const CLASS_NAME='__react-link__';
 
-export default class extends React.Component{
+export default class extends React.PureComponent{
   static propTypes = {
     className:PropTypes.string,
     href:PropTypes.string,
     activeClassName:PropTypes.string,
-    method:PropTypes.oneOf(['href','replace','other'])
+    method:PropTypes.oneOf([
+      'href','replace','other'
+    ])
   };
 
   static defaultProps = {
@@ -55,7 +57,7 @@ export default class extends React.Component{
     });
   }
 
-  _onClick(inEvent){
+  _onClick = inEvent => {
     const {onClick,method,href} = this.props;
     switch(method){
       case 'href':
@@ -72,13 +74,15 @@ export default class extends React.Component{
     }
     inEvent.preventDefault();
     return false;
-  }
+  };
 
   render(){
-    const {className,children,href} = this.props;
+    const {className,activeClassName,children,href,...props} = this.props;
     return (
-      <a href={href}
-      onClick={this._onClick.bind(this)}
+      <a
+      {...props}
+      href={href}
+      onClick={this._onClick}
       className={classNames('react-link',CLASS_NAME,className)}>{children}</a>
     );
   }
