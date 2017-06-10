@@ -69,7 +69,7 @@ export default class extends React.PureComponent{
         this.setActiveClass(location.href);
         break;
       case 'other':
-        onClick.call(this,inEvent);
+        onClick(inEvent);
         break;
     }
     inEvent.preventDefault();
