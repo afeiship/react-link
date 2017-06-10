@@ -14,6 +14,7 @@ export default class extends React.PureComponent{
     className:PropTypes.string,
     href:PropTypes.string,
     activeClassName:PropTypes.string,
+    onClick:PropTypes.func,
     method:PropTypes.oneOf([
       'href','replace','other'
     ])
@@ -22,6 +23,7 @@ export default class extends React.PureComponent{
   static defaultProps = {
     href:'#',
     activeClassName:'active',
+    onClick:noop,
     method:'href'
   };
 
