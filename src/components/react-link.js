@@ -79,7 +79,7 @@ export default class extends React.PureComponent{
   };
 
   render(){
-    const {className,activeClassName,children,href,...props} = this.props;
+    const {className,activeClassName,children,href,onClick,...props} = this.props;
     return (
       <a
       {...props}
