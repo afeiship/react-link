@@ -1,4 +1,4 @@
-import './style.scss';
+// import './style.scss';
 
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -64,16 +64,16 @@ export default class extends React.PureComponent{
     switch(method){
       case 'href':
         location[method] = href;
-        this.setActiveClass(location.href);
         break;
       case 'replace':
         location.replace(href);
-        this.setActiveClass(location.href);
         break;
       case 'other':
         onClick(inEvent);
         break;
     }
+
+    this.setActiveClass(location.href);
     inEvent.preventDefault();
     return false;
   };
