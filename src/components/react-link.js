@@ -34,18 +34,21 @@ export default class extends React.PureComponent{
   }
 
   attachEvents(){
-    window.onhashchange = window.onpopstate = () => {
-      this.setActiveClass(location.href);
-    };
+    window.addEventListener('hashchange', this._syncCls );
+    window.addEventListener('popstate', this._syncCls );
+  }
+  componentDidMount(){
+    this._syncCls();
   }
 
-  componentDidMount(){
-    this.setActiveClass(location.href);
+  componentWillUnmount(){
+    window.removeEventListener('hashchange', this._syncCls );
+    window.removeEventListener('popstate', this._syncCls );
   }
 
   setActiveClass(inTargetUrl){
     const docUrl = location.href;
-    const {href,activeClassName} = this.props;
+    const {href, activeClassName} = this.props;
     const links = document.querySelectorAll(`.${CLASS_NAME}`);
     let _links = Array.prototype.slice.call(links);
 
@@ -57,6 +60,10 @@ export default class extends React.PureComponent{
         item.classList.remove(activeClassName);
       }
     });
+  }
+
+  _syncCls = e => {
+    this.setActiveClass(location.href);
   }
 
   _onClick = inEvent => {
